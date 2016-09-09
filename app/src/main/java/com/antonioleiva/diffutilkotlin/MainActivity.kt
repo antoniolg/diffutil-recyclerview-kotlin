@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fillAdapter() {
-        val oldItems = adapter.items
         adapter.items = provider.generate()
-        adapter.notifyChanges(oldItems, adapter.items)
     }
 }

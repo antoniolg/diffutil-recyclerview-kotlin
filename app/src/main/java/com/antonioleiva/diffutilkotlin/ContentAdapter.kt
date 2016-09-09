@@ -5,10 +5,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.view_item.view.*
+import kotlin.properties.Delegates
 
 class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
 
-    var items: List<Content> = emptyList()
+    var items: List<Content> by Delegates.observable(emptyList()) {
+        prop, old, new ->
+        notifyChanges(old, new)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(parent.inflate(R.layout.view_item))
