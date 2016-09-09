@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.view_item.view.*
 import kotlin.properties.Delegates
 
-class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>() {
+class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
 
     var items: List<Content> by Delegates.observable(emptyList()) {
         prop, old, new ->
